@@ -1,0 +1,42 @@
+//
+//  AppInfo.h
+//  CallMe
+//
+//  Created by Justin on 16/7/22.
+//  Copyright © 2016年 Justin. All rights reserved.
+//
+
+#ifndef AppInfo_h
+#define AppInfo_h
+
+
+#endif /* AppInfo_h */
+
+#import "AppMethod.h"
+
+#import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
+
+
+
+#define KeyWindow [[UIApplication sharedApplication]keyWindow]
+
+#define NLSystemVersionGreaterOrEqualThan(version) ([[[UIDevice currentDevice] systemVersion] floatValue] >= version)
+#define IOS8_OR_LATER NLSystemVersionGreaterOrEqualThan(8.0)
+#define IOS7_OR_LATER NLSystemVersionGreaterOrEqualThan(7.0)
+#define IOS6_OR_LATER NLSystemVersionGreaterOrEqualThan(6.0)
+#define ISIOS7 [[[UIDevice currentDevice] systemVersion] floatValue] >=7
+#define ISIOS6_OR_EARLY [[[UIDevice currentDevice] systemVersion] floatValue] < 7
+
+
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+
+#define HEIGHT_TITLE            64.0f
+#define HEIGHT_TOOLSBAR         49.0f
+
+
+#define colorWithRGB(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+
+

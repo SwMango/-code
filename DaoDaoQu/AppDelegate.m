@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeViewController.h"
+#import "DTNavigationController.h"
+
 
 @interface AppDelegate ()
 
@@ -17,8 +20,45 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    HomeViewController *homeVC = [[HomeViewController alloc]init];
+    
+    DTNavigationController * rootNav = [[DTNavigationController alloc]initWithRootViewController:homeVC];
+
+    [self customizeInterface];
+    [self.window setRootViewController:rootNav];
+
+    
+    
+    
     return YES;
 }
+- (void)customizeInterface {
+    UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:10 forBarMetrics:UIBarMetricsDefaultPrompt];
+    //    UIImage *backgroundImage = nil;
+    
+    NSDictionary *textAttributes = nil;
+    textAttributes = @{
+                       NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
+                       NSForegroundColorAttributeName: [UIColor whiteColor],
+                       };
+    
+    
+    
+    //设置导航图片
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
+    //    [imageView setImage:[UIImage imageNamed:@"导航"]];
+    //
+    //    backgroundImage = [UIImage imageNamed:@"导航"];
+    
+    [navigationBarAppearance setBackgroundImage:imageView.image forBarMetrics:UIBarMetricsDefault];
+    [navigationBarAppearance setBackgroundColor:colorWithRGB(242.0, 242.0, 242.0, 1.0)];
+    [navigationBarAppearance setTitleTextAttributes:textAttributes];
+    
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
